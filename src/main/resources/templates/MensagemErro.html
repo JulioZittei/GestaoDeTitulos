@@ -5,6 +5,7 @@
 
 <div class="alert alert-danger" th:if="${#fields.hasAnyErrors()}">
 	<div th:each="detailedErrors : ${#fields.detailedErrors()}">
+		<span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
 		<span th:text="${detailedErrors.message}"></span>
 	</div>
 </div>

@@ -35,7 +35,7 @@
 						<td th:text="${titulo.descricao}"></td>
 						<td class="text-center" th:text="${{titulo.dataVencimento}}"></td>
 						<td class="text-right" th:text="|R$ ${{titulo.valor}}|"></td>
-						<td class="text-center">
+						<td class="text-center" th:attr="data-role=${titulo.codigo}">
 							<span class="label" th:text="${titulo.status.descricao}" th:if="${titulo.status.descricao} == Pendente" th:classappend="label-warning"></span>
 							<span class="label" th:text="${titulo.status.descricao}" th:if="${titulo.status.descricao} == Cancelado" th:classappend="label-danger"></span>
 							<span class="label" th:text="${titulo.status.descricao}" th:if="${titulo.status.descricao} == Recebido" th:classappend="label-success"></span>
@@ -47,6 +47,11 @@
 							<a class="btn btn-link btn-xs" data-toggle="modal" data-target="#confirmacaoExclusaoModal"
 							th:attr="data-codigo=${titulo.codigo}, data-descricao=${titulo.descricao}" title="Excluir" rel="tooltip" data-placement="top">
 								<span class="glyphicon glyphicon-remove"></span>
+							</a>
+							<a class="btn btn-link btn-xs js-atualizar-status" title="Receber" rel="tooltip" data-placement="top"
+							th:if="${titulo.status.descricao} == Pendente" th:href="@{/titulos/{codigo}/receber(codigo=${titulo.codigo})}"
+							th:attr="data-codigo=${titulo.codigo}">
+								<span class="glyphicon glyphicon-check"></span>
 							</a>
 						</td>
 					</tr>

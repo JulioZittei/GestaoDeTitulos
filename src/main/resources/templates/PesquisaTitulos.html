@@ -13,11 +13,26 @@
 		<div class="panel-heading">
 			<div class="clearfix">
 				<h1 class="panel-title floated-left">Pesquisa de Titulos</h1>
-				<a class="btn btn-link floated-right" href="/titulos/novo">Novo titulo</a>
+				<a class="btn btn-link floated-right" th:href="@{/titulos/novo}">Novo titulo</a>
 			</div>
 		</div>
 	
 		<div class="panel-body">
+			<form method="GET" class="form-horizontal" th:object="${filtro}">
+				<div class="form-group">
+					<div class="col-sm-4">
+						<div class="input-group">
+							<input type="text" class="form-control" placeholder="Qual titulo você esta procurando?"
+							autofocus="autofocus" th:field="*{descricao}"/>
+							<span class="input-group-btn">
+								<button type="submit" class="btn btn-default">
+									<i class="glyphicon glyphicon-search"></i>
+								</button>
+							</span>
+						</div>
+					</div>
+				</div>
+			</form>
 			<table class="table table-bordered table-striped">
 				<thead>
 					<tr>

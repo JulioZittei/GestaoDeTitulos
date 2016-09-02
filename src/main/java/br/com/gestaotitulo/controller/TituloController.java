@@ -19,6 +19,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import br.com.gestaotitulo.model.StatusTitulo;
 import br.com.gestaotitulo.model.Titulo;
 import br.com.gestaotitulo.repository.Titulos;
+import br.com.gestaotitulo.repository.filter.TituloFilter;
 import br.com.gestaotitulo.service.CadastroTituloService;
 
 @Controller
@@ -56,9 +57,9 @@ public class TituloController {
 	}
 	 
 	@RequestMapping
-	public ModelAndView pesquisar(){
+	public ModelAndView pesquisar(@ModelAttribute("filtro") TituloFilter filtro){
+		List<Titulo>  todosTitulos = cadastroTituloService.filtrar(filtro);
 		ModelAndView mv = new ModelAndView("PesquisaTitulos");
-		List<Titulo> todosTitulos = titulos.findAll();
 		mv.addObject("titulos", todosTitulos);
 		return mv;
 	}

@@ -25,4 +25,13 @@ The Titles System Management  was developed for study and learning of Spring Tec
 
 ## Copyright and license
 
+<<<<<<< HEAD
 `Autor` **Julio Zittei**
+=======
+<<<<<<< HEAD
+`Autor` **Julio Zittei**
+`Publish Date` **09/2016**
+=======
+`Autor` **Julio Zittei**
+>>>>>>> ba0df649ae1e23bf100be2ca3eef54ab29b229ae
+>>>>>>> fd49c311c425a298b781ac9f0c30431c88805862
